@@ -1,0 +1,40 @@
+version: "3.9"
+
+# T.I.A Public Portfolio — docker-compose.yml
+# Deploy: Railway (ou docker compose up localmente)
+# Requisitos: .env preenchido (ver .env.example)
+
+services:
+
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: tia-public-api:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NEO4J_URI: "neo4j+s://c25dde0d.databases.neo4j.io"
+      ENVIRONMENT: "production"
+    ports:
+      - "8000:8000"
+    networks:
+      - tia-net
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+
+
+networks:
+  tia-net:
+    driver: bridge

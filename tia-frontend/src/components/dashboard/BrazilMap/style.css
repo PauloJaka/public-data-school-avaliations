@@ -1,0 +1,2 @@
+.map-state { transition: filter var(--dur-fast) var(--ease-out); cursor: pointer; }
+.map-state:hover { filter: drop-shadow(0 4px 12px rgba(59,130,246,0.45)); }

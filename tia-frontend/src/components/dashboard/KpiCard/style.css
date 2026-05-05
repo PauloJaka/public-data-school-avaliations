@@ -1,0 +1,7 @@
+.kpi::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(59,130,246,0.06), transparent 60%);
+}

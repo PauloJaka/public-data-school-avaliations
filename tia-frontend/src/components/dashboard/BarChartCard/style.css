@@ -1,0 +1,3 @@
+.bar-row .fill { width: 0; animation: fillIn 1s var(--ease-out) forwards; }
+
+@keyframes fillIn { to { width: var(--target); } }

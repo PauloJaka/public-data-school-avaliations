@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "platform": "Platform",
+    "data": "Data",
+    "chat": "AI Chat",
+    "about": "About"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Technology for Intelligence in Learning",
+      "headlineLine1": "Intelligence",
+      "headlineLine2": "for",
+      "headlineAccent": "Brazilian Education",
+      "subhead": "A data- and AI-driven platform to understand, compare, and act on Brazil's educational indicators.",
+      "ctaPrimary": "Explore the platform",
+      "ctaSecondary": "Watch demo"
+    },
+    "stats": {
+      "states": "States Analyzed",
+      "cities": "Municipalities Mapped",
+      "ideb": "National Average IDEB"
+    }
+  },
+  "about": {
+    "title": "Data & Methodology",
+    "subtitle": "Every number has a source.",
+    "items": {
+      "ideb":        { "name": "IDEB", "desc": "Basic Education Development Index. Combines pass rate and SAEB score on a 0–10 scale. National average: ~4.5.", "source": "INEP" },
+      "saeb":        { "name": "SAEB", "desc": "Standardized national assessment for 5th and 9th grade and high school seniors. One of the two inputs for IDEB.", "source": "INEP" },
+      "qedu":        { "name": "QEDU", "desc": "Education data platform aggregating INEP microdata. Used for enrollment, IDEB, and dropout rates at school level.", "source": "QEDU/Meritt" },
+      "pnad":        { "name": "PNAD", "desc": "National Household Sample Survey. Provides income, literacy, and race/gender education breakdowns.", "source": "IBGE" },
+      "atlas":       { "name": "Atlas Brasil", "desc": "Municipal Human Development Index database. Used to contextualize socioeconomic conditions in equity analysis.", "source": "IPEA/PNUD" },
+      "equityIndex": { "name": "Equity Index", "desc": "Composite of 6 dimensions: racial gap, gender gap, literacy rate, dropout rate, urban/rural gap, and income decile.", "source": "T.I.A" },
+      "mlRisk":      { "name": "ML Risk v0.6", "desc": "Gradient Boosted Trees model (LightGBM) trained on 14 municipal indicators. Score > 0.65 indicates critical dropout risk.", "source": "T.I.A" }
+    }
+  },
+  "dashboard": {
+    "kpi": {
+      "idebLabel": "National Avg. IDEB",
+      "idebTooltip": "Weighted average of IDEB (EF + EM) across all states. Source: INEP 2023.",
+      "statesLabel": "States Analyzed",
+      "statesTooltip": "States with complete IDEB, PNAD, and School Census data available.",
+      "riskLabel": "Cities at Risk",
+      "riskTooltip": "Municipalities with a dropout risk score > 0.65 from the LightGBM v0.6 model."
+    },
+    "page": {
+      "title": "Indicators Dashboard",
+      "lastUpdated": "Last updated: {date} · INEP/IBGE",
+      "regions": ["Brazil", "North", "Northeast", "Southeast", "South", "Central-West"]
+    },
+    "map": {
+      "title": "IDEB Map",
+      "legendLow": "Low",
+      "legendHigh": "High"
+    },
+    "chart": {
+      "title": "Top 5 States — IDEB 2024"
+    },
+    "risk": {
+      "title": "Cities with most Schools At Risk",
+      "badge": "ML Risk v0.6",
+      "mlRiskTooltip": "LightGBM model trained on 14 municipal indicators. Score 0–1; values above 0.65 indicate critical school dropout risk."
+    },
+    "lineChart": {
+      "title": "IDEB by Region — Comparison",
+      "ef1": "EF Early Years",
+      "ef2": "EF Later Years",
+      "em": "High School"
+    },
+    "radar": {
+      "title": "Equity Index",
+      "labels": {
+        "racial": "Racial",
+        "gender": "Gender",
+        "literacy": "Literacy",
+        "dropout": "Dropout",
+        "ruralUrban": "Urban/Rural",
+        "income": "Income"
+      },
+      "tooltips": {
+        "racial":    "Gap between white and Black/Brown student outcomes (PNAD/IBGE).",
+        "gender":    "Gender parity index: 1.0 = equal years of schooling for men and women.",
+        "literacy":  "% of population aged 15+ who can read and write (PNAD/IBGE).",
+        "dropout":   "Annual school abandonment rate (School Census/INEP).",
+        "ruralUrban":"IDEB difference between urban and rural schools.",
+        "income":    "IDEB gap between the highest and lowest income deciles."
+      }
+    }
+  },
+  "chat": {
+    "header": {
+      "title": "T.I.A Assistant",
+      "context": "Context: SE · IDEB 2024 · PNAD 2023"
+    },
+    "suggestions": {
+      "compareNE":    "Compare SE to the Northeast average",
+      "ideb10y":      "IDEB evolution over the last 10 years",
+      "risk":         "Which municipalities are most at risk?",
+      "equity":       "Breakdown by race and gender",
+      "vsJapan":      "How does Brazil compare to Japan and Finland?",
+      "methodology":  "How is IDEB calculated?",
+      "literacy":     "What is Brazil's literacy rate?",
+      "dropoutCause": "Why do students drop out of school?"
+    },
+    "sidebar": {
+      "contextLabel": "Active context",
+      "sources": "Sources: 3 documents",
+      "kpiIdeb": "IDEB",
+      "kpiDropout": "Dropout",
+      "kpiRisk": "Risk",
+      "kpiStudents": "Students"
+    },
+    "sessions": {
+      "recentLabel": "Recent sessions",
+      "demos": [
+        { "label": "SE education overview", "age": "now" },
+        { "label": "CE dropout risk", "age": "2d" },
+        { "label": "RJ vs SP equity", "age": "5d" }
+      ]
+    },
+    "input": {
+      "placeholder": "Ask something about the data…",
+      "shiftEnter": "Shift + Enter for new line",
+      "model": "RAG · Gemini Flash"
+    },
+    "empty": {
+      "welcome": "Hello! Choose a suggestion below or ask your question."
+    }
+  }
+}

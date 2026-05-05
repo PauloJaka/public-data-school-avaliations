@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "platform": "Plataforma",
+    "data": "Dados",
+    "chat": "Chat IA",
+    "about": "Sobre"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Tecnologia para Inteligência em Aprendizagem",
+      "headlineLine1": "Inteligência",
+      "headlineLine2": "para a",
+      "headlineAccent": "Educação Brasileira",
+      "subhead": "Uma plataforma orientada por dados e IA para entender, comparar e agir sobre indicadores educacionais do Brasil.",
+      "ctaPrimary": "Explorar a plataforma",
+      "ctaSecondary": "Ver demo"
+    },
+    "stats": {
+      "states": "Estados Analisados",
+      "cities": "Municípios Mapeados",
+      "ideb": "IDEB Médio Nacional"
+    }
+  },
+  "about": {
+    "title": "Dados & Metodologia",
+    "subtitle": "Cada número tem uma fonte.",
+    "items": {
+      "ideb":        { "name": "IDEB", "desc": "Índice de Desenvolvimento da Educação Básica. Combina taxa de aprovação e nota no SAEB em uma escala de 0 a 10. Média nacional: ~4,5.", "source": "INEP" },
+      "saeb":        { "name": "SAEB", "desc": "Avaliação padronizada aplicada ao 5º e 9º ano do EF e ao 3º ano do EM. É uma das duas entradas do cálculo do IDEB.", "source": "INEP" },
+      "qedu":        { "name": "QEDU", "desc": "Plataforma de dados educacionais que agrega microdados do INEP. Usada para matrículas, IDEB e evasão por escola.", "source": "QEDU/Meritt" },
+      "pnad":        { "name": "PNAD", "desc": "Pesquisa Nacional por Amostra de Domicílios do IBGE. Fornece dados de renda, alfabetização e educação por raça e gênero.", "source": "IBGE" },
+      "atlas":       { "name": "Atlas Brasil", "desc": "Base de dados do IDH Municipal. Usado para contextualizar desenvolvimento socioeconômico na análise de equidade.", "source": "IPEA/PNUD" },
+      "equityIndex": { "name": "Índice de Equidade", "desc": "Composto por 6 dimensões: gap racial, gap de gênero, letramento, evasão, disparidade urbano/rural e decil de renda.", "source": "T.I.A" },
+      "mlRisk":      { "name": "ML Risk v0.6", "desc": "Modelo Gradient Boosted Trees (LightGBM) treinado em 14 indicadores municipais. Score > 0,65 indica risco crítico de evasão.", "source": "T.I.A" }
+    }
+  },
+  "dashboard": {
+    "kpi": {
+      "idebLabel": "IDEB Nacional Médio",
+      "idebTooltip": "Média ponderada do IDEB (EF + EM) de todos os estados. Fonte: INEP 2023.",
+      "statesLabel": "Estados Analisados",
+      "statesTooltip": "Estados com dados completos de IDEB, PNAD e Censo Escolar disponíveis.",
+      "riskLabel": "Municípios em Risco",
+      "riskTooltip": "Municípios com score de risco de evasão > 0,65 segundo o modelo LightGBM v0.6."
+    },
+    "page": {
+      "title": "Painel de Indicadores",
+      "lastUpdated": "Última atualização: {date} · INEP/IBGE",
+      "regions": ["Brasil", "Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"]
+    },
+    "map": {
+      "title": "Mapa do IDEB",
+      "legendLow": "Baixo",
+      "legendHigh": "Alto"
+    },
+    "chart": {
+      "title": "Top 5 estados — IDEB 2024"
+    },
+    "risk": {
+      "title": "Municípios com mais escolas em risco",
+      "badge": "ML Risk v0.6",
+      "mlRiskTooltip": "Modelo LightGBM treinado em 14 indicadores municipais. Score 0–1; valores acima de 0,65 indicam risco crítico de evasão escolar."
+    },
+    "lineChart": {
+      "title": "IDEB por Região — Comparativo",
+      "ef1": "EF Anos Iniciais",
+      "ef2": "EF Anos Finais",
+      "em": "Ensino Médio"
+    },
+    "radar": {
+      "title": "Índice de Equidade",
+      "labels": {
+        "racial": "Racial",
+        "gender": "Gênero",
+        "literacy": "Letramento",
+        "dropout": "Evasão",
+        "ruralUrban": "Urbano/Rural",
+        "income": "Renda"
+      },
+      "tooltips": {
+        "racial":    "Gap entre resultados de alunos brancos e pretos/pardos (PNAD/IBGE).",
+        "gender":    "Índice de paridade de gênero: 1.0 = anos de estudo iguais entre homens e mulheres.",
+        "literacy":  "% da população com 15+ anos que sabe ler e escrever (PNAD/IBGE).",
+        "dropout":   "Taxa anual de abandono escolar (Censo Escolar/INEP).",
+        "ruralUrban":"Diferença de IDEB entre escolas urbanas e rurais.",
+        "income":    "Gap de IDEB entre o decil de renda mais alto e mais baixo."
+      }
+    }
+  },
+  "chat": {
+    "header": {
+      "title": "Assistente T.I.A",
+      "context": "Contexto: SE · IDEB 2024 · PNAD 2023"
+    },
+    "suggestions": {
+      "compareNE":    "Compare SE com a média do Nordeste",
+      "ideb10y":      "Evolução do IDEB nos últimos 10 anos",
+      "risk":         "Quais municípios estão em maior risco?",
+      "equity":       "Recorte por raça e gênero",
+      "vsJapan":      "Como o Brasil se compara ao Japão e à Finlândia?",
+      "methodology":  "Como o IDEB é calculado?",
+      "literacy":     "Qual a taxa de alfabetização no Brasil?",
+      "dropoutCause": "Por que alunos abandonam a escola?"
+    },
+    "sidebar": {
+      "contextLabel": "Contexto ativo",
+      "sources": "Fontes: 3 documentos",
+      "kpiIdeb": "IDEB",
+      "kpiDropout": "Evasão",
+      "kpiRisk": "Risco",
+      "kpiStudents": "Alunos"
+    },
+    "sessions": {
+      "recentLabel": "Sessões recentes",
+      "demos": [
+        { "label": "Panorama de SE", "age": "agora" },
+        { "label": "Risco em CE", "age": "2d" },
+        { "label": "Equidade RJ vs SP", "age": "5d" }
+      ]
+    },
+    "input": {
+      "placeholder": "Pergunte algo sobre os dados…",
+      "shiftEnter": "Shift + Enter para nova linha",
+      "model": "RAG · Gemini Flash"
+    },
+    "empty": {
+      "welcome": "Olá! Escolha uma sugestão abaixo ou faça sua pergunta."
+    }
+  }
+}

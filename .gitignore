@@ -2,6 +2,12 @@
 .claude/
 .agent/
 
+# ── Markdown files (except README.md at any level) ───────────────────────────
+*.md
+*.MD
+!README.md
+!README.MD
+
 # ── Environment & secrets ─────────────────────────────────────────────────────
 .env
 .env.*

@@ -9,8 +9,14 @@ import { RecentSessions } from '../RecentSessions/RecentSessions';
 import { useChatContext } from '../ChatContext';
 import { STATE_DATA } from '@/lib/data/neo4j-snapshot';
 import { useBackendStatus } from '@/hooks/useBackendStatus';
+import { cn } from '@/lib/utils/cn';
 
-export function ChatSidebar() {
+interface ChatSidebarProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+export function ChatSidebar({ open, onClose }: ChatSidebarProps) {
   const locale = useLocale();
   const tChat = useTranslations('chat');
   const { uf, setUf } = useChatContext();
@@ -26,15 +32,32 @@ export function ChatSidebar() {
   const stateList = Object.values(STATE_DATA).sort((a, b) => a.nome.localeCompare(b.nome));
 
   return (
-    <aside className="sidebar flex w-72 flex-col gap-6 overflow-y-auto border-r border-border bg-surface">
+    <aside
+      className={cn(
+        'chat-sidebar-mobile sidebar flex w-72 flex-shrink-0 flex-col gap-6 overflow-y-auto border-r border-border bg-surface',
+        // Mobile: fixed drawer, slide in/out
+        'fixed inset-y-0 left-0 z-40 md:relative md:translate-x-0',
+        open ? 'translate-x-0' : '-translate-x-full'
+      )}
+    >
       <div className="flex items-center justify-between border-b border-border p-5">
-        <Link href={`/${locale}`} className="flex items-center gap-2 text-text font-semibold tracking-wide">
+        <Link href={`/${locale}`} className="flex items-center gap-2 text-text font-semibold tracking-wide" onClick={onClose}>
           <BrandLogo />
           <span>T.I.A</span>
         </Link>
         <div className="flex items-center gap-2">
           <LangToggle />
           <ThemeToggle />
+          {/* Close button — mobile only */}
+          <button
+            onClick={onClose}
+            aria-label="Fechar menu"
+            className="md:hidden flex h-8 w-8 items-center justify-center rounded-lg text-muted hover:text-text transition-colors"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -61,10 +84,10 @@ export function ChatSidebar() {
       </div>
 
       <div className="grid grid-cols-2 gap-2 px-5">
-        <MiniKpiCard label={tChat('sidebar.kpiIdeb')}     value={st.ideb_af.toFixed(1)}                                    delta="—" dir="up"   />
-        <MiniKpiCard label={tChat('sidebar.kpiDropout')}  value={`${st.taxa_abandono.toFixed(1)}%`}                        delta="—" dir="down" />
-        <MiniKpiCard label={tChat('sidebar.kpiRisk')}     value={st.pub_media_score_evasao != null ? st.pub_media_score_evasao.toFixed(2) : '—'} delta="—" dir="down" />
-        <MiniKpiCard label={tChat('sidebar.kpiStudents')} value={`${(st.total_matriculas / 1000).toFixed(0)}k`}             delta="—" dir="up"   />
+        <MiniKpiCard label={tChat('sidebar.kpiIdeb')}     value={st.ideb_af.toFixed(1)}                                                               delta="—" dir="up"   />
+        <MiniKpiCard label={tChat('sidebar.kpiDropout')}  value={`${st.taxa_abandono.toFixed(1)}%`}                                                   delta="—" dir="down" />
+        <MiniKpiCard label={tChat('sidebar.kpiRisk')}     value={st.pub_media_score_evasao != null ? st.pub_media_score_evasao.toFixed(2) : '—'}       delta="—" dir="down" />
+        <MiniKpiCard label={tChat('sidebar.kpiStudents')} value={`${(st.total_matriculas / 1000).toFixed(0)}k`}                                        delta="—" dir="up"   />
       </div>
 
       <div className="flex-1 px-5 pb-5">

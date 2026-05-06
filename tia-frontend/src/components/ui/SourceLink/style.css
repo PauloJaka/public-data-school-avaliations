@@ -1,0 +1,26 @@
+.source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono, 'Fira Code', monospace);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--color-muted, #94a3b8);
+  text-decoration: none;
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border, #e2e8f0);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.source-link:hover {
+  color: var(--color-primary, #3b82f6);
+  border-color: var(--color-primary, #3b82f6);
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.source-link-icon {
+  flex-shrink: 0;
+}

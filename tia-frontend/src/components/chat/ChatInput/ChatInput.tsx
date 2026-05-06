@@ -1,21 +1,23 @@
 'use client';
 
 import './style.css';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 export function ChatInput({ onSubmit, disabled }: { onSubmit: (q: string) => void; disabled?: boolean }) {
   const t = useTranslations('chat.input');
   const [v, setV] = useState('');
-  const submit = (e: FormEvent) => {
+
+  function submit(e: SubmitEvent | { preventDefault: () => void }) {
     e.preventDefault();
     const q = v.trim();
     if (!q || disabled) return;
     onSubmit(q);
     setV('');
-  };
+  }
+
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={e => submit(e.nativeEvent)}>
       <div className="input-wrap flex items-end gap-2 rounded-2xl border border-border bg-surface p-2 transition">
         <textarea
           value={v}
@@ -26,7 +28,10 @@ export function ChatInput({ onSubmit, disabled }: { onSubmit: (q: string) => voi
           onKeyDown={(e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
               e.preventDefault();
-              submit(e as unknown as FormEvent);
+              const q = v.trim();
+              if (!q || disabled) return;
+              onSubmit(q);
+              setV('');
             }
           }}
         />
@@ -41,7 +46,7 @@ export function ChatInput({ onSubmit, disabled }: { onSubmit: (q: string) => voi
           </svg>
         </button>
       </div>
-      <div className="input-meta mt-2 flex justify-between font-mono text-[10px] text-muted">
+      <div className="input-meta mt-2 hidden md:flex justify-between font-mono text-[10px] text-muted">
         <span>{t('shiftEnter')}</span>
         <span>{t('model')}</span>
       </div>

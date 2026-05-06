@@ -84,7 +84,15 @@
         "dropout":   "Taxa anual de abandono escolar (Censo Escolar/INEP).",
         "ruralUrban":"Diferença de IDEB entre escolas urbanas e rurais.",
         "income":    "Gap de IDEB entre o decil de renda mais alto e mais baixo."
-      }
+      },
+      "titleTooltip": "Cada eixo varia de 0 a 1. Valores próximos de 1,0 indicam alta equidade ou paridade. Valores abaixo de 0,8 sinalizam desigualdade significativa. Os 6 eixos medem: gap racial (IDHM-E), paridade de gênero (anos de estudo), letramento, evasão escolar, disparidade urbano/rural e gap de renda."
+    },
+    "sources": {
+      "idebLabel":  "QEDU",
+      "saebLabel":  "SAEB · BD",
+      "qeduLabel":  "QEDU",
+      "pnadLabel":  "PNAD · IBGE",
+      "atlasLabel": "Atlas · BD"
     }
   },
   "chat": {

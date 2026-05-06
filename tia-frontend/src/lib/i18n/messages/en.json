@@ -84,7 +84,15 @@
         "dropout":   "Annual school abandonment rate (School Census/INEP).",
         "ruralUrban":"IDEB difference between urban and rural schools.",
         "income":    "IDEB gap between the highest and lowest income deciles."
-      }
+      },
+      "titleTooltip": "Each axis ranges from 0 to 1. Values close to 1.0 indicate high equity or parity. Values below 0.8 signal significant inequality. The 6 axes measure: racial gap (IDHM-E), gender parity (years of schooling), literacy, school dropout, urban/rural gap, and income gap."
+    },
+    "sources": {
+      "idebLabel":  "QEDU",
+      "saebLabel":  "SAEB · BD",
+      "qeduLabel":  "QEDU",
+      "pnadLabel":  "PNAD · IBGE",
+      "atlasLabel": "Atlas · BD"
     }
   },
   "chat": {

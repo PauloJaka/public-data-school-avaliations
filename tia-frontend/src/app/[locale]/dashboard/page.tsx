@@ -71,6 +71,7 @@ export default async function DashboardPage() {
         mapLabelMax={tMap('legendHigh')}
         lineTitle={tLine('title')}
         radarTitle={tRadar('title')}
+        radarTooltipText={tRadar('titleTooltip')}
       />
     </main>
   );

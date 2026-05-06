@@ -9,6 +9,7 @@ import { SVGRadarChart } from '../SVGRadarChart/SVGRadarChart';
 import { RiskAlertsList } from '../RiskAlertsList/RiskAlertsList';
 import { KpiGrid } from '../KpiGrid/KpiGrid';
 import { BRAZIL_REGIONS } from '@/lib/data/brazil-paths';
+import { InfoTooltip } from '@/components/ui/InfoTooltip/InfoTooltip';
 
 export interface RiskItem {
   uf: string;
@@ -50,6 +51,7 @@ export interface DashboardBodyProps {
   mapLabelMax: string;
   lineTitle: string;
   radarTitle: string;
+  radarTooltipText?: string;
 }
 
 export function DashboardBody({
@@ -69,6 +71,7 @@ export function DashboardBody({
   mapLabelMax,
   lineTitle,
   radarTitle,
+  radarTooltipText,
 }: DashboardBodyProps) {
   const [activeRegion, setActiveRegion] = useState(regions[0]);
 
@@ -127,8 +130,9 @@ export function DashboardBody({
           </div>
 
           <div className="rounded-2xl border border-border bg-surface p-5">
-            <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-muted">
+            <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-muted flex items-center gap-1">
               {radarTitle}
+              {radarTooltipText && <InfoTooltip text={radarTooltipText} />}
             </h3>
             <SVGRadarChart
               data={equityData}

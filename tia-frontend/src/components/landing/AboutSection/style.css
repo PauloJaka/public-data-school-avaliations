@@ -57,6 +57,16 @@
   border-radius: 20px;
   background: var(--color-soft);
   color: var(--color-muted);
+  text-decoration: none;
+}
+
+.about-card-source-link {
+  transition: color 0.15s, background 0.15s;
+}
+
+.about-card-source-link:hover {
+  color: var(--color-primary);
+  background: rgba(59, 130, 246, 0.08);
 }
 
 .about-card-desc {
